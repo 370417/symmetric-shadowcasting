@@ -14,13 +14,13 @@ def compute_fov(origin, is_blocking, mark_visible):
 
         def is_wall(tile):
             if tile is None:
-                return false
+                return False
             x, y = quadrant.transform(tile)
             return is_blocking(x, y)
 
         def is_floor(tile):
             if tile is None:
-                return false
+                return False
             x, y = quadrant.transform(tile)
             return not is_blocking(x, y)
 
@@ -55,13 +55,13 @@ class Quadrant:
 
     def transform(self, tile):
         row, col = tile
-        if self.cardinal == north:
+        if self.cardinal == self.north:
             return (self.ox + col, self.oy - row)
-        if self.cardinal == south:
+        if self.cardinal == self.south:
             return (self.ox + col, self.oy + row)
-        if self.cardinal == east:
+        if self.cardinal == self.east:
             return (self.ox + row, self.oy + col)
-        if self.cardinal == west:
+        if self.cardinal == self.west:
             return (self.ox - row, self.oy + col)
 
 class Row:
